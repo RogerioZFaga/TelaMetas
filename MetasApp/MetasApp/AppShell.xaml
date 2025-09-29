@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:MetasApp.Views"
+       x:Class="MetasApp.AppShell">
+
+    <ShellContent Title="Metas" ContentTemplate="{DataTemplate views:MetasPage}" Route="MetasPage"/>
+    <ShellContent Title="CriarMeta" ContentTemplate="{DataTemplate views:CriarMetaPage}" Route="CriarMetaPage"/>
+    <ShellContent Title="DetalheMeta" ContentTemplate="{DataTemplate views:MetaDetailPage}" Route="MetaDetailPage"/>
+
+</Shell>

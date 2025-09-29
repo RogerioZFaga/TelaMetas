@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MetasApp.ViewModels"
+    xmlns:models="clr-namespace:MetasApp.Models"
+    x:Class="MetasApp.Views.MetasPage"
+    BackgroundColor="White"
+    Title="Metas">
+
+    <ContentPage.BindingContext>
+        <vm:MetasViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="12">
+
+        <Grid Row="0" ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center">
+            <Label Text="METAS" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+            <Label Grid.Column="2" Text="{Binding Total, StringFormat='Total: {0}'}" VerticalOptions="Center" HorizontalOptions="End" FontSize="12" TextColor="Gray"/>
+        </Grid>
+
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="18" Padding="0,12,0,12">
+
+                <Label Text="Pendentes" FontAttributes="Bold" FontSize="18" TextColor="Gray"/>
+
+                <CollectionView ItemsSource="{Binding Pendentes}" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Meta" xmlns:models="clr-namespace:MetasApp.Models">
+                            <Frame BackgroundColor="#F5F5F5" CornerRadius="10" Padding="12" Margin="0,4">
+                                <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                                    <CheckBox Grid.RowSpan="2" VerticalOptions="Center" IsChecked="{Binding IsCompleted}" CheckedChanged="CheckBox_CheckedChanged" Color="LightGreen" HorizontalOptions="Start" />
+                                    <Label Grid.Column="1" Text="{Binding Nome}" FontAttributes="Bold" FontSize="16" TextColor="Black" />
+                                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding Descricao}" FontSize="13" TextColor="DarkGray" LineBreakMode="TailTruncation" MaxLines="2"/>
+                                    <Label Grid.Column="2" Grid.Row="1" Text="{Binding DataLimite, StringFormat='{0:dd/MM/yyyy}'}" FontSize="12" TextColor="Gray" HorizontalOptions="End" VerticalOptions="End"/>
+                                    <Button Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Detalhes" BackgroundColor="LightGreen" TextColor="White" Clicked="OnDetalhesClicked" CommandParameter="{Binding .}" HorizontalOptions="End" Margin="0,8,0,0" />
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Label Text="Concluídas" FontAttributes="Bold" FontSize="18" TextColor="LightGreen" Margin="0,8,0,0"/>
+
+                <CollectionView ItemsSource="{Binding Concluidas}" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Meta" xmlns:models="clr-namespace:MetasApp.Models">
+                            <Frame BackgroundColor="#E8FFE8" CornerRadius="10" Padding="12" Margin="0,4">
+                                <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                                    <CheckBox Grid.RowSpan="2" VerticalOptions="Center" IsChecked="{Binding IsCompleted}" CheckedChanged="CheckBox_CheckedChanged" Color="LightGreen" HorizontalOptions="Start" />
+                                    <Label Grid.Column="1" Text="{Binding Nome}" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
+                                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding Descricao}" FontSize="13" TextColor="DarkGray" LineBreakMode="TailTruncation" MaxLines="2"/>
+                                    <Label Grid.Column="2" Grid.Row="1" Text="{Binding DataConclusao, StringFormat='{0:dd/MM/yyyy}'}" FontSize="12" TextColor="Gray" HorizontalOptions="End" VerticalOptions="End"/>
+                                    <Button Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Detalhes" BackgroundColor="LightGreen" TextColor="White" Clicked="OnDetalhesClicked" CommandParameter="{Binding .}" HorizontalOptions="End" Margin="0,8,0,0" />
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+
+        <Button Grid.Row="2" Text="+" WidthRequest="60" HeightRequest="60" CornerRadius="30" FontSize="28" BackgroundColor="LightGreen" TextColor="White" Command="{Binding AddMetaCommand}" HorizontalOptions="End" VerticalOptions="End"/>
+    </Grid>
+</ContentPage>

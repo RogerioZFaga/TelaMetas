@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  x:Class="MetasApp.Views.CriarMetaPage"
+  BackgroundColor="White"
+  Title="Criar Meta">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Entry x:Name="NomeEntry" Placeholder="Nome" />
+            <Editor x:Name="DescricaoEditor" Placeholder="Descrição" HeightRequest="120"/>
+            <DatePicker x:Name="DataPicker" />
+            <Button Text="Criar" BackgroundColor="LightGreen" TextColor="White" Clicked="OnCriarClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

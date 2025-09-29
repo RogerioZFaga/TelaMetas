@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  x:Class="MetasApp.Views.MetaDetailPage"
+  BackgroundColor="White"
+  Title="Detalhes">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label x:Name="NomeLabel" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
+            <Label Text="Descrição" FontAttributes="Bold"/>
+            <Label x:Name="DescricaoLabel" TextColor="Gray"/>
+            <Label Text="Data limite" FontAttributes="Bold"/>
+            <Label x:Name="DataLimiteLabel" TextColor="Gray"/>
+            <Label Text="Data conclusão" FontAttributes="Bold"/>
+            <Label x:Name="DataConclusaoLabel" TextColor="Gray"/>
+            <Button Text="Excluir" BackgroundColor="Red" TextColor="White" Clicked="OnExcluirClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
