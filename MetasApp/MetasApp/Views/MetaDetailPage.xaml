@@ -8,13 +8,13 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="16" Spacing="12">
-            <Label x:Name="NomeLabel" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
-            <Label Text="Descrição" FontAttributes="Bold"/>
-            <Label x:Name="DescricaoLabel" TextColor="Gray"/>
-            <Label Text="Data limite" FontAttributes="Bold"/>
-            <Label x:Name="DataLimiteLabel" TextColor="Gray"/>
-            <Label Text="Data conclusão" FontAttributes="Bold"/>
-            <Label x:Name="DataConclusaoLabel" TextColor="Gray"/>
+            <Label x:Name="NomeLabel" FontSize="30" FontAttributes="Bold" TextColor="Black"/>
+            <Label Text="Descrição" FontSize="20" FontAttributes="Bold"/>
+            <Label x:Name="DescricaoLabel"  FontSize="15" TextColor="Gray"/>
+            <Label Text="Data limite" FontSize="20" FontAttributes="Bold"/>
+            <Label x:Name="DataLimiteLabel"   FontSize="15" TextColor="Gray"/>
+            <Label Text="Data conclusão" FontSize="20" FontAttributes="Bold"/>
+            <Label x:Name="DataConclusaoLabel"   FontSize="15" TextColor="Gray"/>
             <Button Text="Excluir" BackgroundColor="Red" TextColor="White" Clicked="OnExcluirClicked"/>
         </VerticalStackLayout>
     </ScrollView>
